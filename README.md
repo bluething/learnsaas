@@ -180,10 +180,96 @@ Designing of the shard architecture can be _complex_ due to the need to maintain
 
 ### Cloud storage system
 
+## Application security
+
+### Security assessments
+
+#### Employee level
+
+1. Employees are on the same page concerning the recommended security practices.  
+2. The sharing of user accounts is prohibited.  
+3. Assets like phones and laptops are encrypted.  
+4. Two-factor authentication and the use of password managers are being enforced.  
+5. User logins are being monitored.  
+6. Dedicated or partially dedicated security engineers are available to handle crucial security tasks.
+
+#### Code level
+
+1. A Secure Development Lifecycle (SDL) is being used.  
+2. Security within the Software Development Life Cycle (SDLC) is automated.  
+3. A secure code review checklist is being enforced.  
+4. Security-oriented test sessions are being performed.  
+5. The coding environment integrates identity and access management (IAM) and account provisioning systems.  
+6. The project includes event and log notifications.  
+7. The project includes fault-tolerance and scalability
+
+#### Application level
+
+Application should have:  
+1. Security is automated.  
+2. Real-time protection services are being used.  
+3. Dependencies are being tracked.  
+4. The application supports Security Assertion Markup Language (SAML).  
+5. Application support includes System for Cross-domain Identity Management (SCIM) or Service Provisioning Markup Language (SPML), multi-factor authentication, OAuth, and more.  
+6. A desktop client is available for data synchronization.  
+7. The application supports automated identity importing.  
+8. The application supports authentication filtering
+
+The test cases covers the following types of vulnerability:  
+1. Information gathering vulnerabilities.  
+2. Configuration management vulnerabilities.  
+3. Authentication and authorization vulnerabilities.  
+4. Data validation vulnerabilities
+
+#### Infrastructure level
+
+1. Backups are carried out and tested.  
+2. The application’s underlying security is in place.  
+3. Internal services are being monitored.  
+4. Exposed services are being monitored.  
+5. Applications and APIs use encryption
+
+#### Users level
+
+1. The use of two-factor authentication is being encouraged.  
+2. A password policy is being enforced.  
+3. Suspicious activities are being monitored.
+
+### SaaS security issues
+
+Beware of [OWASP Top Ten](https://owasp.org/www-project-top-ten/)
+
+### Authorization
+
+The challenge is the mingling of data and user activities in the collaborative environment.  
+We can use RBAC, but falls short when it comes to managing the kind of collaboration in a multi-tenant setup.  
+The alternative is use Multi tenancy authorization system (MTAS)  
+![MTAS](https://github.com/bluething/learnsaas/blob/main/images/MTAS-system.jpeg.webp?raw=true)
+
+### Isolation
+
+The options are siloed (fully isolated) and pool (through authentication policy) model.  
+![isolation type](https://github.com/bluething/learnsaas/blob/main/images/isolation-types.jpeg.webp?raw=true)
+
+Test our model for cross boundary access.
+
+### Things to watch out
+
+- Stay compliant with certifications and audits.  
+- Enforce data retention.  
+  We need to have a clear understanding of which data needs to be retained.
+- Implement transmission data encryption.  
+Also applied for data in storage.
+- Integrate real-time protection.
+
 ## References
 
 [Single Tenant vs Multi Tenant: SaaS Architecture](https://www.clickittech.com/aws/single-tenant-multi-tenant/)  
 [Multi tenant Architecture for a SaaS Application on AWS](https://www.clickittech.com/saas/multi-tenant-architecture/)  
 [How to Design and Develop Successful SaaS Application](https://devcom.com/tech-blog/how-to-design-and-develop-saas-application/)  
 [Multi-tenant SaaS database tenancy patterns](https://docs.microsoft.com/en-us/azure/azure-sql/database/saas-tenancy-app-design-patterns)  
-[Multi-tenant Application Database Design](https://blakebhowe.medium.com/multi-tenant-application-database-design-e4c2d161f3dd)
+[Multi-tenant Application Database Design](https://blakebhowe.medium.com/multi-tenant-application-database-design-e4c2d161f3dd)  
+[SaaS Application Security Guide: Issues, Best Practices, and Examples](https://relevant.software/blog/saas-application-security-guide/)  
+[Multi-Tenancy Authorization System with Federated Identity for Cloud-Based Environments Using Shibboleth](https://www.researchgate.net/publication/257200931_Multi-Tenancy_Authorization_System_with_Federated_Identity_for_Cloud-Based_Environments_Using_Shibboleth)  
+[Towards a Multi-tenancy Authorization System for Cloud Services](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.475.2413&rep=rep1&type=pdf)  
+[Multi-Tenancy Authorization Models for Collaborative Cloud Services](https://profsandhu.com/confrnc/misconf/cts13-paper-preprint.pdf)
