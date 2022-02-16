@@ -65,7 +65,14 @@ The multi tenant application structures are divided into:
 2. Multi Tenant SaaS
 3. URL-based SaaS. It uses a single database and domain.
 
-What stack technology do we need to think about?  
+When designing multi-tenant applications, we should consider:
+1. The number of tenants and their isolation.  
+Isolation types is siloed, pool, and bridge.
+2. Policy management mechanisms.  
+   For example available features, performance, limitations and SLAs (Service Level Agreements)
+
+## What stack technology do we need to think about?
+
 1. Programming language.  
 2. Cloud provider.  
 3. Monolithic, microservices, or serverless ecosystem.  
