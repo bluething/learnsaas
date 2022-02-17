@@ -92,11 +92,23 @@ Isolation types is siloed, pool, and bridge.
 
 #### Monolithic Architecture
 
+![monolith](https://github.com/bluething/learnsaas/blob/main/images/monolith.png?raw=true)  
+Example of monolith architectural style
+
 #### Microservices
+
+![mircoservices](https://github.com/bluething/learnsaas/blob/main/images/microservices.png?raw=true)  
+Example of microservices architectural style
 
 #### Kubernetes Architecture
 
+![kubernetes](https://github.com/bluething/learnsaas/blob/main/images/kubernetes.png?raw=true)  
+Example of kubernetes architectural style
+
 #### Serverless Architecture
+
+![serverless](https://github.com/bluething/learnsaas/blob/main/images/serverless.png?raw=true)  
+Example of serverless architectural style
 
 ### Container orchestration platform
 
