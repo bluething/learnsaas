@@ -274,6 +274,61 @@ Test our model for cross boundary access.
 Also applied for data in storage.
 - Integrate real-time protection.
 
+## Starting Point
+
+![saas landscape](https://github.com/bluething/learnsaas/blob/main/images/saaslandscape.png?raw=true)
+
+1. Think about identity and onboarding on day one.  
+2. Limit developer awareness of multi-tenancy.  
+3. Find the data partitioning model that fit each microservice.  
+4. Tenant isolation != authentication/authorization.  
+5. Don't overlook metrics, operations, and agility.
+
+### Onboarding
+
+1. How new tenant get introduced to our environment?  
+2. How the tenant select the tiers?  
+3. How the tenant sign up? 
+4. How the infrastructure get configured?
+
+![tenant onboarding](https://github.com/bluething/learnsaas/blob/main/images/tenantonboarding.png?raw=true)
+
+### Authentication
+
+1. Association between tenant and identity.  
+2. How the identity and policy flow through the system? _Tenant context everywhere!_
+
+![tenant context](https://github.com/bluething/learnsaas/blob/main/images/tenantcontexteverywhere.png?raw=true)
+
+### Application Service
+
+Our microservices. When design the microservices don't think about multi tenant, code like we build single tenant.  
+The key to achieve this is _tenant context everywhere_. Use tenant data (identity) to get their data.
+
+![tenant microservices](https://github.com/bluething/learnsaas/blob/main/images/tenantmicroservices.png?raw=true)
+
+### Storage Partitioning
+
+1. How we represent the tenant data?  
+2. How we isolate the tenant data?
+
+The option are silo or pool. Pool based isolation have a challenge, how we ensure the tenant data (or resources) can't be accessed by other tenant?  
+The solution is using _tenant context_.  
+![runtime scope](https://github.com/bluething/learnsaas/blob/main/images/runtimescope.png?raw=true)
+
+The decision influenced by  
+1. Compliance and security.  
+2. Performance.  
+3. Data footprint.  
+4. Noisy neighbor.  
+5. Data distribution.
+
+### Matrics/analytics
+
+### Management
+
+### Billing
+
 ## References
 
 [Single Tenant vs Multi Tenant: SaaS Architecture](https://www.clickittech.com/aws/single-tenant-multi-tenant/)  
@@ -284,4 +339,5 @@ Also applied for data in storage.
 [SaaS Application Security Guide: Issues, Best Practices, and Examples](https://relevant.software/blog/saas-application-security-guide/)  
 [Multi-Tenancy Authorization System with Federated Identity for Cloud-Based Environments Using Shibboleth](https://www.researchgate.net/publication/257200931_Multi-Tenancy_Authorization_System_with_Federated_Identity_for_Cloud-Based_Environments_Using_Shibboleth)  
 [Towards a Multi-tenancy Authorization System for Cloud Services](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.475.2413&rep=rep1&type=pdf)  
-[Multi-Tenancy Authorization Models for Collaborative Cloud Services](https://profsandhu.com/confrnc/misconf/cts13-paper-preprint.pdf)
+[Multi-Tenancy Authorization Models for Collaborative Cloud Services](https://profsandhu.com/confrnc/misconf/cts13-paper-preprint.pdf)  
+[SaaS Deep Dive: Designing and Building Multi-Tenant Solutions • Tod Golding • GOTO 2020](https://youtu.be/joz0DoSQDNw)
